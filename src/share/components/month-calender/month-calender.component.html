@@ -1,0 +1,18 @@
+<div class="app-month-calender">
+
+  <div class="app-month-calender__row">
+    <div *ngFor="let name of weeksName">{{name.letter}}</div>
+  </div>
+  <div *ngFor="let week of weeks"
+       class="app-month-calender__row"
+  >
+    <div *ngFor="let day of week.days" class="day-container" >
+      <div
+           class="day"
+           [class.now]="day?.isSame(currentDate , 'd')">
+
+        {{ day?.format('D')}}
+      </div>
+    </div>
+  </div>
+</div>

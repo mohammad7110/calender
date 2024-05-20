@@ -1,0 +1,42 @@
+.app-month-calender {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+
+  &__row {
+    display: table-row;
+    height: 30px;
+
+    div {
+      display: table-cell;
+      font-size: 10px;
+      font-weight: 500;
+      vertical-align: middle;
+      color: #70757a;
+
+      &.day-container {
+
+        .day {
+          border-radius: 50%;
+          transition: background-color .1s linear;
+          cursor: pointer;
+          color: rgb(60, 64, 67);
+          width:  24px;
+          height: 24px;
+          line-height: 24px;
+
+          &:hover {
+            background-color: rgb(241, 243, 244);
+          }
+
+          &.now {
+            background-color: rgb(26, 115, 232);
+            color: #fff;
+          }
+        }
+
+      }
+    }
+  }
+}

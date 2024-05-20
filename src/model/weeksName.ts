@@ -1,0 +1,30 @@
+export const WeeksName = [
+  {
+    letter:'S',
+    short:'SUN'
+  },
+  {
+    letter:'M',
+    short:'MON'
+  },
+  {
+    letter:'T',
+    short:'TUE'
+  },
+  {
+    letter:'W',
+    short:'WED'
+  },
+  {
+    letter:'T',
+    short:'THU'
+  },
+  {
+    letter:'F',
+    short:'FRI'
+  },
+  {
+    letter:'S',
+    short:'SAT'
+  }
+]
