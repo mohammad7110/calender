@@ -1,17 +1,20 @@
 <div class="app-month-calender">
 
   <div class="app-month-calender__row">
-    <div *ngFor="let name of weeksName">{{name.letter}}</div>
+    <div *ngFor="let name of weeksName">{{ name.letter }}</div>
   </div>
   <div *ngFor="let week of weeks"
        class="app-month-calender__row"
   >
-    <div *ngFor="let day of week.days" class="day-container" >
+    <div *ngFor="let day of week.days" class="day-container">
       <div
-           class="day"
-           [class.now]="day?.isSame(currentDate , 'd')">
+        class="day"
+        [class.now]="day?.date?.isSame(currentDate , 'd')"
+        [class.appointment]="day?.appointment"
+        [matTooltip]="day?.appointment?.title ?? ''"
+      >
 
-        {{ day?.format('D')}}
+        {{ day?.date?.format('D') }}
       </div>
     </div>
   </div>

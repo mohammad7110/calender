@@ -1,0 +1,11 @@
+.app-appointment{
+  display: flex;
+  height: 100vh;
+  &__left{
+    width: 448px;
+
+  }
+  &__right{
+    flex: 1;
+  }
+}

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import * as moment from "moment";
 import {Week} from "../model/week";
-import {Moment} from "moment";
+import {Appointment} from "../model/appointment";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,9 @@ export class CalenderService {
     date.date(1);
     while (date.month() === month) {
       weeks.push({
-        days: this.buildDays(date.clone(), month)
+        days: this.buildDays(date.clone(), month).map(d => {
+          return d ? {date: d} : null;
+        })
       })
       date.add(1, 'w');
       date.days(0)
@@ -40,7 +42,7 @@ export class CalenderService {
     return days;
   }
 
-  buildCurrentWeek(date: moment.Moment): Array<moment.Moment> {
+  buildCurrentWeek(date: moment.Moment): Array<{ date: moment.Moment, appointment?: Appointment }> {
     date.add(-1 * date.weekday(), 'd');
     const days: Array<moment.Moment> = [];
 
@@ -48,6 +50,8 @@ export class CalenderService {
       days.push(date.clone())
       date.add(1, 'd');
     }
-    return days;
+    return days.map(d => {
+      return {date: d}
+    });
   }
 }

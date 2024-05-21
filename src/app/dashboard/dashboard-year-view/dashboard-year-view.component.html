@@ -1,0 +1,6 @@
+<div class="app-dashboard-year-view">
+    <div class="app-dashboard-year-view__month" *ngFor="let month of months">
+        <div class="app-dashboard-year-view__month--title">{{month.title}}</div>
+        <app-month-calender [date]="month.date.format('YYYY/MM/DD')"></app-month-calender>
+    </div>
+</div>

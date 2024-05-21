@@ -1,0 +1,17 @@
+<div class="actions">
+  <button mat-icon-button (click)="close()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon>
+  </button>
+  <button mat-icon-button (click)="delete()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+  </button>
+</div>
+<div class="content">
+  <p>
+    BOOKABLE APPOINTMENT SCHEDULE
+  </p>
+  <div class="title">{{data.title}} </div>
+  <p class="sub-title">{{data.duration}} hour </p>
+  <p class="sub-title">{{data.start}} - {{data.end}} </p>
+
+</div>

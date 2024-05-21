@@ -1,0 +1,37 @@
+<div class="app-dashboard-left-side-bar">
+  <div class="app-dashboard-left-side-bar__action">
+    <button mat-raised-button  [routerLink]="['/appointment']">
+      <div class="content">
+
+        <svg width="36" height="36" viewBox="0 0 36 36">
+          <path fill="#34A853" d="M16 16v14h4V20z"></path>
+          <path fill="#4285F4" d="M30 16H20l-4 4h14z"></path>
+          <path fill="#FBBC05" d="M6 16v4h10l4-4z"></path>
+          <path fill="#EA4335" d="M20 16V6h-4v14z"></path>
+          <path fill="none" d="M0 0h36v36H0z"></path>
+        </svg>
+
+
+        Create
+      </div>
+    </button>
+
+  </div>
+  <div class="app-dashboard-left-side-bar__calender">
+    <div class="app-dashboard-left-side-bar__calender--action">
+      <span class="app-dashboard-left-side-bar__calender--action__date">{{date.format('MMM YYYY')}}</span>
+      <div style="display: flex">
+        <button mat-icon-button (click)="changeMonth('prev')">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="chevron_left"></mat-icon>
+
+        </button>
+        <button mat-icon-button (click)="changeMonth('next')">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="chevron_right"></mat-icon>
+        </button>
+      </div>
+    </div>
+    <div>
+      <app-month-calender [date]="date.format('YYYY/MM/DD')"></app-month-calender>
+    </div>
+  </div>
+</div>

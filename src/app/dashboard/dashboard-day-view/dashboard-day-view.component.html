@@ -1,0 +1,46 @@
+<div class="app-dashboard-day-view">
+  <div class="app-dashboard-day-view__header">
+
+    <div class="app-dashboard-day-view__header--separator"></div>
+    <div
+      class="app-dashboard-day-view__header--day"
+      [class.now]="currentDate.isSame(currentDate , 'd')"
+    >
+      <div>{{ currentDate.format('ddd') }}</div>
+      <div>{{ currentDate.format('D') }}</div>
+
+    </div>
+  </div>
+  <div class="app-dashboard-day-view__body">
+    <div class="app-dashboard-day-view__body--separator">
+      <div *ngFor="let time of timePeriods">
+        <span>
+
+        {{ time.title }}
+        </span>
+      </div>
+    </div>
+    <div
+      class="app-dashboard-day-view__body--days">
+      <div
+        class="app-dashboard-day-view__body--days__box" *ngFor="let time of timePeriods">
+        <div *ngIf="appointment && (appointment.start <= time.start  && appointment.end >= time.end)"
+             class="app-dashboard-week-view__body--days__box--appointment"
+
+             (click)="openAppointment(appointment)">
+          <div>
+
+            {{ appointment.title }}
+          </div>
+          <div>
+
+            {{ appointment.duration }} hour
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

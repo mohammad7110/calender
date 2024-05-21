@@ -22,7 +22,7 @@
           transition: background-color .1s linear;
           cursor: pointer;
           color: rgb(60, 64, 67);
-          width:  24px;
+          width: 24px;
           height: 24px;
           line-height: 24px;
 
@@ -33,6 +33,11 @@
           &.now {
             background-color: rgb(26, 115, 232);
             color: #fff;
+          }
+
+          &.appointment {
+            color: rgb(24, 90, 188);
+            background-color: rgb(210, 227, 252);
           }
         }
 

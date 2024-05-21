@@ -1,0 +1,33 @@
+<div class="app-dashboard-month-view"
+     cdkDropListGroup>
+  <div *ngFor="let week of weeks ;let weekIndex = index"
+       class="app-dashboard-month-view__row"
+
+
+  >
+    <div *ngFor="let day of week.days;let dayIndex = index" class="day-container"
+
+         cdkDropList
+         (cdkDropListDropped)="drop($event , weekIndex , dayIndex)"
+    >
+      <div *ngIf="weekIndex === 0" class="weeks-name">
+        {{ weeksName[dayIndex].short }}
+      </div>
+      <div
+        class="day"
+        [class.now]="day?.date?.isSame(currentDate , 'd')">
+
+        {{ day?.date?.format('D') }}
+      </div>
+      <div *ngIf="day?.appointment" class="appointment-container" (click)="openAppointment(day?.appointment)"
+           [cdkDragData]="{dayIndex , weekIndex}"
+           cdkDrag
+      >
+        <div class="point"></div>
+        <div class="start">{{ day?.appointment?.start }}</div>
+        <div class="title">{{ day?.appointment?.title }}</div>
+
+      </div>
+    </div>
+  </div>
+</div>

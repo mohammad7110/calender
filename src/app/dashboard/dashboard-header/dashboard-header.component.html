@@ -1,0 +1,19 @@
+<div class="app-dashboard-header">
+  <div class="app-dashboard-header__left">
+
+    <div class="app-dashboard-header__left--title">
+      <img src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_{{date.format('D')}}_2x.png"/>
+      <span>Calendar</span>
+    </div>
+    <div class="app-dashboard-header__left--date">
+      {{date.format('MMM YYYY')}}
+    </div>
+  </div>
+  <div class="app-dashboard-header__right" >
+      <mat-select  [formControl]="viewType">
+        <mat-option *ngFor="let type of viewTypes" [value]="type">{{type}}</mat-option>
+      </mat-select>
+  </div>
+
+
+</div>

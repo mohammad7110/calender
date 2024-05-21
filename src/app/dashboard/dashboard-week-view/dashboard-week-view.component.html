@@ -1,0 +1,58 @@
+<div class="app-dashboard-week-view">
+  <div class="app-dashboard-week-view__header">
+
+    <div class="app-dashboard-week-view__header--separator"></div>
+    <div
+      class="app-dashboard-week-view__header--day"
+
+      *ngFor="let day of days" [class.now]="day?.date?.isSame(currentDate , 'd')">
+      <div>{{ day.date.format('ddd') }}</div>
+      <div>{{ day.date.format('D') }}</div>
+
+    </div>
+  </div>
+  <div class="app-dashboard-week-view__body" cdkDropListGroup>
+    <div class="app-dashboard-week-view__body--separator">
+      <div *ngFor="let time of timePeriods">
+        <span>
+
+        {{ time.title }}
+        </span>
+      </div>
+    </div>
+    <div *ngFor="let day of days ; let dayIndex = index;"
+         class="app-dashboard-week-view__body--days"
+
+    >
+      <div
+        class="app-dashboard-week-view__body--days__box" *ngFor="let time of timePeriods;let timeIndex = index;"
+        cdkDropList
+        (cdkDropListDropped)="drop($event  , dayIndex ,timeIndex)"
+
+      >
+
+
+        <div *ngIf="day.appointment && (day.appointment.start <= time.start  && day.appointment.end >= time.end)"
+             class="app-dashboard-week-view__body--days__box--appointment"
+
+             (click)="openAppointment(day?.appointment)"
+             [cdkDragData]="{appointment :day?.appointment}"
+             cdkDrag
+
+        >
+          <div>
+
+            {{ day.appointment.title }}
+          </div>
+          <div>
+
+            {{ day.appointment.duration }} hour
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

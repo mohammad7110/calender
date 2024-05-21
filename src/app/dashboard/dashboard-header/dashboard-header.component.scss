@@ -1,0 +1,57 @@
+.app-dashboard-header {
+  padding: 8px;
+  width: 100%;
+  border-bottom: rgb(218, 220, 224) 1px solid;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  &__left {
+    display: flex;
+    align-items: center;
+
+    &--title {
+      display: flex;
+      align-items: center;
+      padding-left: 16px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        padding-right: 4px;
+      }
+
+      span {
+        font-size: 22px;
+        line-height: 24px;
+        color: rgb(60, 64, 67);
+        padding-left: 4px;
+      }
+    }
+
+    &--date {
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+      line-height: 24px;
+      color: rgb(60, 64, 67);
+      padding-left: 40px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    mat-select {
+
+      width: 100px;
+      border: 1px solid rgb(218, 220, 224);
+      padding: 4px 14px 4px 14px;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  }
+
+
+}

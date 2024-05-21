@@ -1,0 +1,64 @@
+<div class="app-appointment-left-side-bar">
+  <div class="app-appointment-left-side-bar__box">
+    <div class="app-appointment-left-side-bar__box--action">
+      <button mat-icon-button (click)="close()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon>
+      </button>
+    </div>
+    <div class="app-appointment-left-side-bar__box--content" [formGroup]="formGroup">
+      <p class="app-appointment-left-side-bar__box--content__title">BOOKABLE APPOINTMENT SCHEDULE
+      </p>
+      <mat-form-field appearance="outline">
+        <mat-label>Add title</mat-label>
+        <input matInput type="text" formControlName="title">
+      </mat-form-field>
+      <hr class="separator">
+      <p class="app-appointment-left-side-bar__box--content__title">Appointment duration
+      </p>
+      <p class="app-appointment-left-side-bar__box--content__sub-title">How long should each appointment last?
+      </p>
+
+      <mat-select formControlName="duration">
+        <mat-option *ngFor="let duration of durationOptions" [value]="duration.value">{{ duration.key }}</mat-option>
+      </mat-select>
+      <hr class="separator">
+      <p class="app-appointment-left-side-bar__box--content__title">Availability
+      </p>
+      <p class="app-appointment-left-side-bar__box--content__sub-title">Set when you're available for appointments.
+      </p>
+
+      <div class="app-appointment-left-side-bar__box--content__date">
+        <mat-form-field>
+          <input matInput formControlName="day" [matDatepicker]="picker" (click)="picker.open()">
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 formControlName="start"
+                 [matAutocomplete]="startAuto"
+                 (focusout)="filter('start')"/>
+          <mat-autocomplete autoActiveFirstOption #startAuto="matAutocomplete">
+            <mat-option *ngFor="let option of startOptions" [value]="option.start">
+              {{ option.start }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        -
+        <mat-form-field>
+          <input matInput
+                 formControlName="end"
+                 [matAutocomplete]="endAuto"
+                 (focusout)="filter('end')"/>
+          <mat-autocomplete autoActiveFirstOption #endAuto="matAutocomplete">
+            <mat-option *ngFor="let option of endOptions" [value]="option.start">
+              {{ option.start }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="app-appointment-left-side-bar__box--footer">
+    <button mat-flat-button color="primary" [disabled]="!formGroup.valid" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

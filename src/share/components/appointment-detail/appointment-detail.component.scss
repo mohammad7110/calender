@@ -1,0 +1,50 @@
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 8px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    color: rgb(95, 99, 104);
+    margin: 0 5px;
+
+    mat-icon {
+      line-height: inherit;
+      width: inherit;
+      height: inherit;
+    }
+  }
+}
+
+.content {
+  width: 420px;
+  padding: 28px;
+
+  p {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.8px;
+    color: rgb(60, 64, 67);
+    font-weight: 500;
+  }
+
+  .title {
+    color: rgb(60, 64, 67);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-bottom: 10px;
+  }
+  .sub-title {
+    line-height: 16px;
+    color: rgb(95, 99, 104);
+    font-size: 12px;
+    letter-spacing: .3px;
+    margin-bottom:10px;
+  }
+}
+
+

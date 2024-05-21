@@ -1,0 +1,87 @@
+.app-appointment-left-side-bar {
+  height: 100vh;
+  padding: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &__box {
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px -7px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    height: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+
+    &--action {
+      padding: 5px;
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        width: 28px;
+        height: 28px;
+        color: rgb(95, 99, 104);
+        line-height: 28px;
+        padding: 0;
+        font-size: 20px;
+
+        mat-icon {
+          height: inherit;
+          width: inherit;
+          font-size: inherit;
+          line-height: inherit;
+        }
+      }
+    }
+
+    &--content {
+      box-shadow: inset 0 2px 2px -1px rgba(0, 0, 0, 0.12);
+      padding: 20px 30px 0 52px;
+      box-sizing: border-box;
+      flex: 1;
+      &__title {
+        font-size: 11px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        color: rgb(60, 64, 67);
+        font-weight: 500;
+      }
+
+      &__sub-title {
+        line-height: 16px;
+        color: rgb(95, 99, 104);
+        font-size: 12px;
+        letter-spacing: .3px;
+        padding-bottom: 4px;
+        margin-top:-10px;
+      }
+
+      mat-form-field {
+        width: 100%;
+      }
+      mat-select{
+        width: 120px;
+        border: 1px solid rgb(218, 220, 224);
+        padding: 4px 14px 4px 14px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: whitesmoke;
+      }
+      &__date{
+        display: flex;
+        align-items: center;
+        mat-form-field{
+          width: 30%;
+          margin: 0 10px;
+          min-width: unset;
+        }
+      }
+    }
+    &--footer{
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 10px;
+    }
+  }
+}

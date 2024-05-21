@@ -1,0 +1,56 @@
+.app-dashboard-left-side-bar {
+  &__action {
+    padding: 20px;
+
+    button {
+      border-radius: 48px;
+      color: rgb(60, 64, 67);
+      padding: 20px 22px 20px 8px;
+      font-size: 14px;
+      font-weight: 500;
+      min-width: 110px;
+
+      .content {
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  &__calender {
+    padding: 0 14px 16px 19px;
+
+    &--action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &__date {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: .25px;
+        line-height: 20px;
+        color: rgb(60, 64, 67);
+      }
+      button{
+        width: 24px;
+        height: 24px;
+        color: rgb(95, 99, 104);
+        line-height: 24px;
+        padding: 0;
+        .mat-icon{
+          height: inherit;
+          width: inherit;
+          font-size: 20px;
+          line-height: inherit;
+        }
+        &:first-child{
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+}
