@@ -5,14 +5,36 @@
       <img src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_{{date.format('D')}}_2x.png"/>
       <span>Calendar</span>
     </div>
+    <div class="app-dashboard-header__left--actions">
+      <button mat-stroked-button (click)="goToToday()">Today</button>
+      <button mat-icon-button (click)="changeDate(-1)">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="chevron_left"></mat-icon>
+
+      </button>
+      <button mat-icon-button (click)="changeDate(1)">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="chevron_right"></mat-icon>
+      </button>
+    </div>
     <div class="app-dashboard-header__left--date">
-      {{date.format('MMM YYYY')}}
+      <ng-container *ngIf="viewType.value === viewTypeEnum.Month">
+        {{date.format('MMM YYYY')}}
+
+      </ng-container>
+      <ng-container *ngIf="viewType.value === viewTypeEnum.Year">
+        {{date.format('YYYY')}}
+      </ng-container>
+      <ng-container *ngIf="viewType.value === viewTypeEnum.Week">
+        {{date.format('MMM YYYY')}}
+      </ng-container>
+      <ng-container *ngIf="viewType.value === viewTypeEnum.Day">
+        {{date.format('MMM D, YYYY')}}
+      </ng-container>
     </div>
   </div>
-  <div class="app-dashboard-header__right" >
-      <mat-select  [formControl]="viewType">
-        <mat-option *ngFor="let type of viewTypes" [value]="type">{{type}}</mat-option>
-      </mat-select>
+  <div class="app-dashboard-header__right">
+    <mat-select [formControl]="viewType">
+      <mat-option *ngFor="let type of viewTypes" [value]="type">{{type}}</mat-option>
+    </mat-select>
   </div>
 
 

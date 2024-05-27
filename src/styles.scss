@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "styles/mat-form-field";
+@import "styles/mat-option";
+
 html, body {
   height: 100%;
   overflow: hidden
@@ -15,4 +18,10 @@ body {
   background: rgb(232, 234, 237);
   border: 0;
   margin: 12px 0;
+}
+.app-dashboard__main{
+  app-dashboard-month-view,app-dashboard-week-view , app-dashboard-day-view{
+    display: flex;
+    flex: 1;
+  }
 }

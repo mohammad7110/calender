@@ -4,23 +4,29 @@ import {MaterialModule} from "./material/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MonthCalenderComponent} from './components/month-calender/month-calender.component';
 import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
+import {RouterModule} from "@angular/router";
+import {DashboardWeekViewComponent} from "./components/dashboard-week-view/dashboard-week-view.component";
 
 
 @NgModule({
   declarations: [
     MonthCalenderComponent,
-    AppointmentDetailComponent
+    AppointmentDetailComponent,
+    DashboardWeekViewComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     MaterialModule,
-    MonthCalenderComponent
+    RouterModule,
+    MonthCalenderComponent,
+    DashboardWeekViewComponent
   ]
 })
 export class ShareModule {

@@ -4,16 +4,19 @@
     <div class="app-dashboard-day-view__header--separator"></div>
     <div
       class="app-dashboard-day-view__header--day"
-      [class.now]="currentDate.isSame(currentDate , 'd')"
+      [class.now]="date.isSame(currentDate , 'd')"
     >
-      <div>{{ currentDate.format('ddd') }}</div>
-      <div>{{ currentDate.format('D') }}</div>
+      <div>{{ date.format('ddd') }}</div>
+      <div>{{ date.format('D') }}</div>
 
     </div>
   </div>
-  <div class="app-dashboard-day-view__body">
+  <div class="app-dashboard-day-view__body"
+       cdkDropListGroup>
     <div class="app-dashboard-day-view__body--separator">
-      <div *ngFor="let time of timePeriods">
+      <div *ngFor="let time of timePeriods"
+
+      >
         <span>
 
         {{ time.title }}
@@ -23,11 +26,26 @@
     <div
       class="app-dashboard-day-view__body--days">
       <div
-        class="app-dashboard-day-view__body--days__box" *ngFor="let time of timePeriods">
-        <div *ngIf="appointment && (appointment.start <= time.start  && appointment.end >= time.end)"
-             class="app-dashboard-week-view__body--days__box--appointment"
+        class="app-dashboard-day-view__body--days__box" *ngFor="let time of timePeriods;let timeIndex = index;"
+        cdkDropList
+        (cdkDropListDropped)="drop($event  ,timeIndex)"
+      >
+        <div *ngIf="appointment && (appointment.start === time.start)"
+             class="app-dashboard-day-view__body--days__box--appointment"
+             [style.height.px]="appointmentLength ? (appointmentLength *50) -4 :0"
+             [cdkDragData]="{appointment : appointment}"
+             cdkDrag
+             (click)="openAppointment(appointment)"
+        >
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="open_with" cdkDragHandle
 
-             (click)="openAppointment(appointment)">
+          (click)="$event.stopPropagation()"
+          ></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit" cdkDragHandle
+
+          (click)="goToEdit($event ,appointment)"
+          ></mat-icon>
+
           <div>
 
             {{ appointment.title }}

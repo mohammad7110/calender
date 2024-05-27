@@ -5,19 +5,17 @@
   //grid-template-rows: auto;
 
   &__header {
-    grid-template-columns: 0.1fr 6fr ;
+    grid-template-columns: 0.1fr 6fr;
     display: grid;
     padding-left: 45px;
 
-    &--separator {
-      //border-bottom: 1px solid rgb(218, 220, 224);
-    }
 
     &--day {
       border-style: solid;
       border-color: rgb(218, 220, 224);
       border-width: 0 0 0 1px;
       padding-left: 10px;
+
       div {
         &:first-child {
           line-height: 32px;
@@ -69,7 +67,7 @@
   }
 
   &__body {
-    grid-template-columns: 0.1fr 6fr ;
+    grid-template-columns: 0.1fr 6fr;
     display: grid;
     padding-left: 45px;
 
@@ -80,7 +78,8 @@
       div {
         border-top: 1px solid rgb(218, 220, 224);
         position: relative;
-        span{
+
+        span {
           position: absolute;
           color: #70757a;
           font-size: 10px;
@@ -101,6 +100,52 @@
         border-style: solid;
         border-color: rgb(218, 220, 224);
         height: 50px;
+        position: relative;
+        box-sizing: border-box;
+
+        &--appointment {
+          background: rgb(179, 225, 247);
+          width: 400px;
+          left: 2px;
+          position: absolute;
+          top: 2px;
+          padding: 5px;
+          box-sizing: border-box;
+          cursor: pointer;
+          border: 2px solid rgb(3, 155, 229);
+          z-index: 1;
+          border-radius: 8px;
+
+          mat-icon {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+
+            &:nth-child(1) {
+              cursor: move;
+              right: 10px;
+              color: rgb(0 172 255);
+
+            }
+            &:nth-child(2) {
+              cursor: pointer;
+              right: 40px;
+              color: rgb(251 188 5);
+
+            }
+          }
+
+          div {
+            font-weight: 500;
+            font-size: 12px;
+            color: rgb(60, 64, 67);
+
+            &:last-child {
+              font-weight: 400;
+            }
+          }
+        }
       }
     }
   }

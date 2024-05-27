@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import * as moment from "moment";
+import {EventService} from "../../../services/event.service";
 
 @Component({
   selector: 'app-dashboard-year-view',
@@ -57,4 +58,12 @@ export class DashboardYearViewComponent {
       date: moment().month(11)
     },
   ]
+
+  constructor(private eventService : EventService) {
+    this.eventService.event.date.subscribe(date=>{
+      this.months.forEach(m=>{
+        m.date.year(date.year());
+      })
+    })
+  }
 }

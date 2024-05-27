@@ -1,0 +1,11 @@
+.mat-mdc-select-panel {
+  padding: 0;
+  .mat-mdc-option {
+    padding: 5px 8px;
+    font-size: 14px;
+    min-height: unset;
+    .mat-pseudo-checkbox-minimal{
+      display: none;
+    }
+  }
+}

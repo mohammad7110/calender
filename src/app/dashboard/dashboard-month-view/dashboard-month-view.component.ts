@@ -25,16 +25,23 @@ export class DashboardMonthViewComponent {
   constructor(private calenderService: CalenderService, private appointmentService: AppointmentService, private eventService: EventService,
               private dialog: MatDialog
   ) {
-
-    this.weeks = this.calenderService.buildWeeks(moment(this.currentDate.clone(), 'YYYY/MM/DD').month(),
-      moment(this.currentDate.clone(), 'YYYY/MM/DD').year());
-    this.appointments = this.appointmentService.getAppointments();
-    this.checkAppointmentInMonth();
+    this.createWeeks(this.currentDate.clone());
     this.eventService.event.appointments.subscribe(res => {
       this.appointments = res;
       this.checkAppointmentInMonth();
     })
+    this.eventService.event.date.subscribe(date => {
+      this.createWeeks(date.clone());
+    });
 
+  }
+
+
+  createWeeks(date: moment.Moment): void {
+    this.weeks = this.calenderService.buildWeeks(moment(date.clone(), 'YYYY/MM/DD').month(),
+      moment(date.clone(), 'YYYY/MM/DD').year());
+    this.appointments = this.appointmentService.getAppointments();
+    this.checkAppointmentInMonth();
   }
 
   checkAppointmentInMonth(): void {

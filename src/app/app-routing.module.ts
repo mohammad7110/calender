@@ -3,15 +3,15 @@ import {NgModule} from "@angular/core";
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
-
-  },
-  {
     path: 'appointment',
     loadChildren: () =>
       import('./appointment/appointment.module').then((m) => m.AppointmentModule)
+
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
 
   },
   {

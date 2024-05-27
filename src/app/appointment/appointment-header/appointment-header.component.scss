@@ -1,0 +1,28 @@
+.app-appointment-header {
+  padding: 8px;
+  width: 100%;
+  border-bottom: rgb(218, 220, 224) 1px solid;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  height: 56px;
+  box-sizing: border-box;
+  &__left {
+    display: flex;
+    align-items: center;
+
+    &--date {
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+      line-height: 24px;
+      color: rgb(60, 64, 67);
+      padding-left: 40px;
+    }
+  }
+
+
+
+
+}

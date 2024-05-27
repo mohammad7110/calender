@@ -40,6 +40,7 @@
       padding: 20px 30px 0 52px;
       box-sizing: border-box;
       flex: 1;
+
       &__title {
         font-size: 11px;
         line-height: 16px;
@@ -54,31 +55,44 @@
         font-size: 12px;
         letter-spacing: .3px;
         padding-bottom: 4px;
-        margin-top:-10px;
+        margin-top: -10px;
       }
 
       mat-form-field {
         width: 100%;
       }
-      mat-select{
+
+      mat-select {
         width: 120px;
-        border: 1px solid rgb(218, 220, 224);
         padding: 4px 14px 4px 14px;
         border-radius: 4px;
         box-sizing: border-box;
-        background-color: whitesmoke;
+        transition: background-color 0.3s;
+        font-size: 14px;
+        &:hover {
+          background-color: whitesmoke;
+
+        }
       }
-      &__date{
+
+      &__date {
         display: flex;
         align-items: center;
-        mat-form-field{
-          width: 30%;
-          margin: 0 10px;
+
+        mat-form-field {
+          width: 56px;
+          margin: 0 8px;
           min-width: unset;
+          --mat-form-field-container-text-size: 14px;
+
+          &:nth-child(1) {
+            width: 100px;
+          }
         }
       }
     }
-    &--footer{
+
+    &--footer {
       display: flex;
       flex-direction: row-reverse;
       padding: 10px;

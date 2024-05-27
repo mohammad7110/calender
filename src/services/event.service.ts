@@ -1,31 +1,31 @@
 import {Injectable} from '@angular/core';
 import {Subject} from "rxjs";
-import {ViewType} from "../model/viewType";
 import {Appointment} from "../model/appointment";
+import * as moment from 'moment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
   private readonly publishers = {
-    view: new Subject<ViewType>(),
-    appointments: new Subject<Appointment[]>()
+    appointments: new Subject<Appointment[]>(),
+    date: new Subject<moment.Moment>()
   }
 
   public readonly event = {
-    view: this.publishers.view.asObservable(),
-    appointments: this.publishers.appointments.asObservable()
-
+    appointments: this.publishers.appointments.asObservable(),
+    date: this.publishers.date.asObservable()
   }
 
   constructor() {
   }
 
-  changeView(viewType: ViewType): void {
-    this.publishers.view.next(viewType);
-  }
 
   changeAppointments(appointments: Appointment[]): void {
     this.publishers.appointments.next(appointments);
+  }
+
+  changeDate(date: moment.Moment): void {
+    this.publishers.date.next(date);
   }
 }

@@ -5,9 +5,6 @@
     <app-dashboard-left-side-bar></app-dashboard-left-side-bar>
   </div>
   <div class="app-dashboard__main">
-    <app-dashboard-year-view *ngIf="viewType === viewTypeEnum.Year"></app-dashboard-year-view>
-    <app-dashboard-month-view *ngIf="viewType === viewTypeEnum.Month"></app-dashboard-month-view>
-    <app-dashboard-week-view *ngIf="viewType === viewTypeEnum.Week"></app-dashboard-week-view>
-    <app-dashboard-day-view *ngIf="viewType === viewTypeEnum.Day"></app-dashboard-day-view>
+    <router-outlet></router-outlet>
   </div>
 </div>

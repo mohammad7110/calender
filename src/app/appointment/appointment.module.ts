@@ -4,13 +4,15 @@ import { AppointmentComponent } from '../appointment/appointment.component';
 import {AppointmentRoutingModule} from "./appointment-routing.module";
 import { AppointmentLeftSideBarComponent } from './appointment-left-side-bar/appointment-left-side-bar.component';
 import {ShareModule} from "../../share/share.module";
+import { AppointmentHeaderComponent } from './appointment-header/appointment-header.component';
 
 
 
 @NgModule({
   declarations: [
     AppointmentComponent,
-    AppointmentLeftSideBarComponent
+    AppointmentLeftSideBarComponent,
+    AppointmentHeaderComponent
   ],
   imports: [
     CommonModule,

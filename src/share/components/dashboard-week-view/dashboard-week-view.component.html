@@ -32,14 +32,23 @@
       >
 
 
-        <div *ngIf="day.appointment && (day.appointment.start <= time.start  && day.appointment.end >= time.end)"
+        <div *ngIf="day.appointment && (day.appointment.start === time.start)"
              class="app-dashboard-week-view__body--days__box--appointment"
+             [style.height.px]="day.appointmentLength ? (day.appointmentLength *50) -4 :0"
 
              (click)="openAppointment(day?.appointment)"
              [cdkDragData]="{appointment :day?.appointment}"
              cdkDrag
 
         >
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="open_with" cdkDragHandle
+
+                    (click)="$event.stopPropagation()"
+          ></mat-icon>
+          <mat-icon *ngIf="!editMode" aria-hidden="false" aria-label="Example home icon" fontIcon="edit" cdkDragHandle
+
+                    (click)="goToEdit($event ,day?.appointment)"
+          ></mat-icon>
           <div>
 
             {{ day.appointment.title }}

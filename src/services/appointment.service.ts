@@ -20,6 +20,15 @@ export class AppointmentService {
     return this.appointments;
   }
 
+  getAppointmentById(id?: string): Appointment | undefined {
+    if (id) {
+      const appointment = this.appointments.find(a => a.id === id);
+      return appointment;
+    }
+    return undefined;
+  }
+
+
   addAppointment(appointment: Appointment) {
     if (appointment.id) {
       let appIndex = this.appointments.findIndex(a => a.id === appointment.id);
@@ -69,7 +78,6 @@ export class AppointmentService {
     if (index >= 0) {
       this.appointments[index] = appointment;
     }
-    console.log(this.appointments)
     this.saveAppointment();
     this.eventService.changeAppointments(this.appointments);
   }
