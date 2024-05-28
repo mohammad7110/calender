@@ -1,6 +1,5 @@
 # Live demo
-
-You can see  [Live demo](https://mohammad7110.github.io/calender).
+Check out the live demo of the project <a href="https://mohammad7110.github.io/calender/" target="_blank">here</a>.
 
 # Calendly
 
