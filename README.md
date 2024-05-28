@@ -1,6 +1,6 @@
 # Live demo
 
-You can see  [Live demo](https://mohammad7110.github.io/calender) version 16.0.4.
+You can see  [Live demo](https://mohammad7110.github.io/calender).
 
 # Calendly
 
